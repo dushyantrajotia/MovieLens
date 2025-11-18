@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- App theme (Material Components) -->
+    <style name="Theme.MovieLens" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Colors come from res/values/colors.xml -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="android:statusBarColor">@color/purple_700</item>
+
+        <!-- Use MaterialComponents window background by default -->
+        <item name="android:windowBackground">?attr/colorSurface</item>
+
+        <!-- Optional: Customize as needed -->
+    </style>
+
+</resources>
