@@ -83,6 +83,12 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.material3.adaptive.navigation.suite)
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1") // or latest
+    implementation("androidx.activity:activity-ktx:1.7.2")
+    // add this (version should match your lifecycle libs; 2.6.1 works)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+
 
     // XML / AppCompat (for your Activities)
     implementation(libs.androidx.appcompat)

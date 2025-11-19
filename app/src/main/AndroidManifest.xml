@@ -1,26 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.devfusion.movielens"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.devfusion.movielens">
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieLens">
-
-        <!-- Launch app at SignInActivity so unauthenticated users see auth first -->
-        <activity android:name=".SignInActivity"
+        <activity
+            android:name=".MyMoviesViewModel"
+            android:exported="false" />
+        <activity
+            android:name=".Models"
+            android:exported="false" />
+        <activity
+            android:name=".TrendingViewModel"
+            android:exported="false" />
+        <activity
+            android:name=".RecommendationViewModel"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileScreen"
+            android:exported="false" />
+        <activity
+            android:name=".MyMoviesScreen"
+            android:exported="false" />
+        <activity
+            android:name=".TrendingScreen"
+            android:exported="false" />
+        <activity
+            android:name=".HomeScreen"
+            android:exported="false" /> <!-- Launch app at SignInActivity so unauthenticated users see auth first -->
+        <activity
+            android:name=".SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity" />
-
     </application>
+
 </manifest>
