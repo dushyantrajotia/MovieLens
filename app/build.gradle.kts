@@ -35,7 +35,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        resValue("string", "default_web_client_id", "\"$defaultWebClientId\"")
+//        resValue("string", "default_web_client_id", "\"$defaultWebClientId\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
