@@ -28,7 +28,7 @@ class TrendingViewModel(
 
     private val providerIds = mapOf(
         "Netflix" to 8,
-        "Amazon Prime" to 119,
+//        "Amazon Prime" to 119,
         "MX Player" to 387
     )
 
