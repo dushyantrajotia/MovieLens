@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -7,6 +9,20 @@ plugins {
 
 val defaultWebClientId: String =
     (project.findProperty("DEFAULT_WEB_CLIENT_ID") ?: "DUMMY_ID").toString()
+
+// Read from local.properties - FIXED VERSION
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    println("DEBUG: local.properties file exists")
+    localPropertiesFile.inputStream().use { localProperties.load(it) }
+} else {
+    println("DEBUG: local.properties file NOT FOUND")
+}
+val tmdbApiKey = localProperties.getProperty("tmdb_api_key", "")
+
+println("DEBUG: TMDB API Key length: ${tmdbApiKey.length}")
+println("DEBUG: TMDB API Key: ${if (tmdbApiKey.isNotEmpty()) "***${tmdbApiKey.takeLast(4)}" else "EMPTY"}")
 
 android {
     namespace = "com.devfusion.movielens"
@@ -25,17 +41,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-        buildConfigField("String", "TMDB_API_KEY", "\"YOUR_TMDB_API_KEY_HERE\"")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
+        buildConfigField("String", "TMDB_API_KEY", "\"$tmdbApiKey\"")
     }
 
     compileOptions {

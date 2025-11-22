@@ -64,7 +64,16 @@ interface TmdbService {
 
 /** helper: build full poster url */
 fun tmdbPosterUrl(path: String?): String? {
-    if (path == null) return null
-    // common base path - w500 gives nice size for posters
-    return "https://image.tmdb.org/t/p/w500$path"
+    if (path.isNullOrBlank()) return null
+
+    // TMDB image base URL
+    val baseUrl = "https://image.tmdb.org/t/p/"
+
+    // Use w500 for good quality thumbnails (you can change to w342, w780, etc.)
+    val size = "w500"
+
+    // Remove any leading slash to avoid double slashes in URL
+    val cleanPath = if (path.startsWith("/")) path.substring(1) else path
+
+    return "$baseUrl$size/$cleanPath"
 }
