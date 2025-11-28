@@ -21,6 +21,7 @@ sealed class BottomTab(
     object Home : BottomTab("home", "Home", Icons.Default.Home)
     object Trending : BottomTab("trending", "Trending", Icons.Default.TrendingUp)
     object MyMovies : BottomTab("mymovies", "MyMovies", Icons.Default.List)
+    object Chat : BottomTab("chat", "Chat", Icons.Default.Chat)
     object Profile : BottomTab("profile", "Profile", Icons.Default.AccountCircle)
 
     companion object {
@@ -29,6 +30,7 @@ sealed class BottomTab(
                 Home.route -> Home
                 Trending.route -> Trending
                 MyMovies.route -> MyMovies
+                Chat.route -> Chat
                 Profile.route -> Profile
                 else -> {
                     Log.w(TAG, "Unknown route '$route', falling back to Home")
@@ -37,7 +39,7 @@ sealed class BottomTab(
             }
         }
 
-        val allTabs: List<BottomTab> = listOf(Home, Trending, MyMovies, Profile)
+        val allTabs: List<BottomTab> = listOf(Home, Trending, MyMovies, Chat, Profile)
     }
 }
 
@@ -82,6 +84,7 @@ fun MovieLensApp() {
             is BottomTab.Home -> HomeScreen(modifier = modifier)
             is BottomTab.Trending -> TrendingScreen(modifier = modifier)
             is BottomTab.MyMovies -> MyMoviesScreen(modifier = modifier)
+            is BottomTab.Chat -> ChatbaseScreen()
             is BottomTab.Profile -> ProfileScreen(modifier = modifier, authManager = authManager)
         }
 
