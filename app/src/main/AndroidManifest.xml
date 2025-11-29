@@ -12,32 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieLens">
-        <activity
-            android:name=".ApiKeyManager"
-            android:exported="false" />
-        <activity
-            android:name=".RetrofitClient"
-            android:exported="false" />
-        <activity
-            android:name=".UserMovie"
-            android:exported="false" />
-        <activity
-            android:name=".MovieRepository"
-            android:exported="false" />
-        <activity
-            android:name=".HomeUiState"
-            android:exported="false" />
-        <activity
-            android:name=".UserMovieInteraction"
-            android:exported="false" />
-        <activity
-            android:name=".RecommendationUiState"
-            android:exported="false" /> <!-- REMOVE THIS INVALID ACTIVITY DECLARATION -->
-        <!--
- <activity
-            android:name=".ProfileViewModel"
-            android:exported="false" />
-        -->
         <!-- Launch app at SignInActivity so unauthenticated users see auth first -->
         <activity
             android:name=".SignInActivity"
