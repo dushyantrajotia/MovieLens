@@ -4,8 +4,8 @@ data class HomeUiState(
     val userName: String = "User",
     val watchHistory: List<Movie> = emptyList(),
     val recommendations: List<Movie> = emptyList(),
-    val newReleases: List<Movie> = emptyList(),      // New in theaters
-    val upcomingMovies: List<Movie> = emptyList()    // Coming soon
+    val newReleases: List<Movie> = emptyList(),
+    val upcomingMovies: List<Movie> = emptyList()
 )
 data class UserPreferences(
     val favoriteGenres: List<String>,

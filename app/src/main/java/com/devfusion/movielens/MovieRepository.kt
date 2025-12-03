@@ -26,6 +26,25 @@ class MovieRepository @Inject constructor(){
         }
     }
 
+    suspend fun searchMovies(query: String): List<Movie> {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = tmdbService.searchMovies(
+                    apiKey = ApiKeyManager.TMDB_API_KEY,
+                    query = query
+                )
+                if (response.isSuccessful) {
+                    response.body()?.results?.map { it.toMovie() } ?: emptyList()
+                } else {
+                    emptyList()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                emptyList()
+            }
+        }
+    }
+
     suspend fun getUpcomingMovies(): List<Movie> {
         return withContext(Dispatchers.IO) {
             try {

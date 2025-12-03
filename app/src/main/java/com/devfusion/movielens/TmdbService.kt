@@ -46,6 +46,14 @@ interface TmdbService {
         @Query("page") page: Int = 1
     ): Response<TmdbPagedResponse>
 
+    @GET("search/movie")
+    suspend fun searchMovies(
+        @Query("api_key") apiKey: String,
+        @Query("query") query: String,
+        @Query("page") page: Int = 1,
+        @Query("include_adult") includeAdult: Boolean = false
+    ): Response<TmdbPagedResponse>
+
     @GET("movie/popular")
     suspend fun popularMovies(
         @Query("api_key") apiKey: String,
